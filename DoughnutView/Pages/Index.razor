@@ -1,0 +1,43 @@
+﻿@page "/"
+
+@using Syncfusion.Blazor.Charts
+
+<SfAccumulationChart Title="Mobile Browser Statistics">
+
+    <AccumulationChartSeriesCollection>
+        <AccumulationChartSeries DataSource="@StatisticsDetails" XName="Browser" YName="Users" Name="Browser" InnerRadius="40%" Radius="200">
+        </AccumulationChartSeries>
+    </AccumulationChartSeriesCollection>
+
+    <AccumulationChartLegendSettings Visible="false"></AccumulationChartLegendSettings>
+
+    <AccumulationChartAnnotations>
+        <AccumulationChartAnnotation Region="Regions.Series" X="43%" Y="43%">
+            <ContentTemplate>
+                <div id="back" style="visibility:visible; cursor:pointer;padding:3px;width:30px; height:30px;">
+                    <img src="https://i.pinimg.com/564x/9a/31/96/9a31966df8f450c8df5435c8a064274f.jpg" alt="Girl in a jacket" width="80" height="80">
+                </div>
+            </ContentTemplate>
+        </AccumulationChartAnnotation>
+    </AccumulationChartAnnotations>
+
+</SfAccumulationChart>
+
+@code {
+
+    public class Statistics
+    {
+        public string Browser { get; set; }
+        public double Users { get; set; }
+    }
+
+    public List<Statistics> StatisticsDetails = new List<Statistics>
+    {
+        new Statistics { Browser = "Chrome", Users = 37 },
+        new Statistics { Browser = "UC Browser", Users = 17 },
+        new Statistics { Browser = "iPhone", Users = 19 },
+        new Statistics { Browser = "Others", Users = 4  },
+        new Statistics { Browser = "Opera", Users = 11 },
+        new Statistics { Browser = "Android", Users = 12 },
+    };
+}
