@@ -2,15 +2,15 @@
 
 This article explains how to add a custom view to a hole in Blazor doughnut chart.
 
-**Adding custom view in doughnut chart using Annotations**
+**Integrate Custom View in Doughnut Chart Hole for Blazor Chart**
 
 [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) provide the support to add custom view to a hole in doughnut chart. This can be achieved by using[Annotations](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.AccumulationChartAnnotation.html).
 
 Annotations are texts, shapes, or images that are used to highlight a specific region of interest in a chart. The [AccumulationChartAnnotation](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.AccumulationChartAnnotation.html) property allows to add annotations to the chart. Specify the element that needs to be displayed in the accumulation chart area by using the [Content](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.AccumulationChartAnnotation.html#Syncfusion_Blazor_Charts_AccumulationChartAnnotation_Content) property of the annotation.
 
-The following code example illustrate how to add an image link into the hole of doughnut chart.
+The following code example illustrates how to add an image link into the hole of doughnut chart.
 
-**C#**
+**Index.razor**
 
 ```cshtml
 
@@ -58,8 +58,7 @@ The following code example illustrate how to add an image link into the hole of 
 ```
 
 
-The following screenshot illustrate the output of the above code
-snippet.
+The following screenshot illustrates the output of the above code snippet.
 
 **Output:**
 
@@ -67,7 +66,7 @@ snippet.
  
 **Conclusion**
 
-I hope you enjoyed learning how to add custom view inside the hole of doughnut of Blazor Chart Component.
+I hope you enjoyed learning how to add a custom view inside the hole of a doughnut chart using the Blazor Chart Component.
 
 You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
 
