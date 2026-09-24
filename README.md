@@ -1,75 +1,84 @@
-# How-to-add-a-custom-view-to-a-hole-in-the-Blazor-doughnut-charts
+# How to Add a Custom View Inside a Blazor Doughnut Chart Hole
 
-This article explains how to add a custom view to a hole in Blazor doughnut chart.
+## Overview
 
-**Integrate Custom View in Doughnut Chart Hole for Blazor Chart**
+This sample demonstrates how to display custom HTML content inside the center hole of a Syncfusion [Blazor Charts](https://www.syncfusion.com/blazor-components/blazor-charts) doughnut chart. The implementation uses an accumulation chart configured as a doughnut chart and places an annotation within the series region to render custom UI content in the chart center.
 
-[Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) provide the support to add custom view to a hole in doughnut chart. This can be achieved by using[Annotations](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.AccumulationChartAnnotation.html).
+By using chart annotations, developers can enrich doughnut charts with images, icons, KPI indicators, navigation controls, or other custom elements. This approach allows important contextual information to be displayed prominently without affecting the chart's underlying data visualization.
 
-Annotations are texts, shapes, or images that are used to highlight a specific region of interest in a chart. The [AccumulationChartAnnotation](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.AccumulationChartAnnotation.html) property allows to add annotations to the chart. Specify the element that needs to be displayed in the accumulation chart area by using the [Content](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.AccumulationChartAnnotation.html#Syncfusion_Blazor_Charts_AccumulationChartAnnotation_Content) property of the annotation.
+## Key Features
 
-The following code example illustrates how to add an image link into the hole of doughnut chart.
+- Uses `SfAccumulationChart` to render an accumulation-based doughnut chart.
+- Configures doughnut rendering through the `InnerRadius` property of `AccumulationChartSeries`.
+- Binds data using:
+  - `DataSource`
+  - `XName`
+  - `YName`
+  - `Name`
+- Sets the doughnut size with:
+  - `InnerRadius`
+  - `Radius`
+- Hides the default legend using `AccumulationChartLegendSettings` with `Visible="false"`.
+- Places custom content inside the doughnut hole using `AccumulationChartAnnotation`.
+- Positions annotation content within the series area using:
+  - `Region="Regions.Series"`
+  - `X`
+  - `Y`
+- Renders custom HTML content through the annotation `ContentTemplate`.
+- Demonstrates displaying an image inside the doughnut chart center.
+- Uses a strongly typed data collection to populate browser usage statistics.
 
-**Index.razor**
+## Prerequisites
 
-```cshtml
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-@using Syncfusion.Blazor.Charts
+## How to Run the Project
 
-<SfAccumulationChart Title="Mobile Browser Statistics">
+**Visual Studio 2022**
 
-    <AccumulationChartSeriesCollection>
-        <AccumulationChartSeries DataSource="@StatisticsDetails" XName="Browser" YName="Users" Name="Browser" InnerRadius="40%" Radius="200">
-        </AccumulationChartSeries>
-    </AccumulationChartSeriesCollection>
+1. Clone or download this repository.
+2. Open the project file:
+   - `DoughnutView/DoughnutView.csproj`
+3. Restore all NuGet packages.
+4. Build the project.
+5. Run the application using **Ctrl+F5**.
 
-    <AccumulationChartLegendSettings Visible="false"></AccumulationChartLegendSettings>
+**Visual Studio Code**
 
-    <AccumulationChartAnnotations>
-        <AccumulationChartAnnotation Region="Regions.Series" X="43%" Y="43%">
-            <ContentTemplate>
-                <div id="back" style="visibility:visible; cursor:pointer;padding:3px;width:30px; height:30px;">                     
-                    <img src="https://i.pinimg.com/564x/9a/31/96/9a31966df8f450c8df5435c8a064274f.jpg" alt="Girl in a jacket" width="80" height="80">
-                </div>
-            </ContentTemplate>
-        </AccumulationChartAnnotation>
-    </AccumulationChartAnnotations>
+1. Clone or download this repository.
+2. Open the repository folder in Visual Studio Code.
+3. Open the integrated terminal.
+4. Navigate to the project directory:
 
-</SfAccumulationChart>
- 
-@code {
-
-    public class Statistics
-    {
-        public string Browser { get; set; }
-        public double Users { get; set; }
-    }
-
-    public List<Statistics> StatisticsDetails = new List<Statistics>
-    {
-        new Statistics { Browser = "Chrome", Users = 37 },
-        new Statistics { Browser = "UC Browser", Users = 17 },
-        new Statistics { Browser = "iPhone", Users = 19 },
-        new Statistics { Browser = "Others", Users = 4  },
-        new Statistics { Browser = "Opera", Users = 11 },
-        new Statistics { Browser = "Android", Users = 12 },
-    };
-}
+```bash
+cd DoughnutView
 ```
 
+5. Restore NuGet packages:
 
-The following screenshot illustrates the output of the above code snippet.
+```bash
+dotnet restore
+```
 
-**Output:**
+6. Run the application:
 
-![](/custom-view-in-doughnut-hole.png) 
- 
-**Conclusion**
+```bash
+dotnet run
+```
 
-I hope you enjoyed learning how to add a custom view inside the hole of a doughnut chart using the Blazor Chart Component.
+7. Open the URL shown in the terminal after the application starts.
 
-You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
+## Project Structure
 
-For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
+`DoughnutView/Pages/Index.razor` - Main sample page containing the `SfAccumulationChart`, doughnut chart series configuration, annotation definition, image template, and browser statistics data source.
 
-If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [support portal](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
+## Support and Feedback
+
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Official documentation for chart annotations: https://help.syncfusion.com/chart-sdk/blazor/accumulation-chart/annotation
+
+## License
+
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
